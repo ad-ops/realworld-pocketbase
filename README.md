@@ -22,5 +22,10 @@ go mod tidy
 go run main.go serve
 ```
 
+```sh
+docker build -t realworld-pocketbase .
+docker run --rm -it -p 8080:8080 realworld-pocketbase
+```
+
 ## Login to PocketBase
 You can use user: `admin@realworld.com` and password: `adminadmin` in the provided db.
