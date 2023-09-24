@@ -9,7 +9,7 @@ import "context"
 import "io"
 import "bytes"
 
-import "github.com/ad-ops/realworld-pocketbase/models"
+import "github.com/ad-ops/realworld-pocketbase/internal/models"
 
 func Articles(articles []models.Article) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {

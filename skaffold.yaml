@@ -1,0 +1,45 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: realworld-pocketbase
+  annotations:
+    description: "Complete app using Pocketbase, Go and Htmx"
+
+build:
+  local:
+    push: false
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+    - image: europe-north1-docker.pkg.dev/app-71495f4b/kanon/placeholder-name-fastapi
+      docker:
+        dockerfile: Dockerfile
+
+manifests:
+  rawYaml:
+    - k8s/*
+  transform:
+  - name: create-setters
+    configMap:
+      - "component:component-name"
+      - "db-host:db-host"
+  - name: apply-setters
+    configMap:
+      - "component:fastapi"
+      - "db-host:surrealdb-service.placeholder-name.svc.cluster.local:8000"
+deploy:
+  kubectl: {}
+
+portForward:
+- resourceType: service
+  resourceName: fastapi-service
+  port: 8080
+  localPort: 4000
+
+profiles:
+- name: gcp
+  build:
+    googleCloudBuild: {}
+  deploy:
+    cloudrun:
+      projectid: 

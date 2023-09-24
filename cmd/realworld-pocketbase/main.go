@@ -9,9 +9,9 @@ import (
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
 
-	"github.com/ad-ops/realworld-pocketbase/components"
-	"github.com/ad-ops/realworld-pocketbase/models"
-	"github.com/ad-ops/realworld-pocketbase/views"
+	"github.com/ad-ops/realworld-pocketbase/web/components"
+	"github.com/ad-ops/realworld-pocketbase/web/views"
+	"github.com/ad-ops/realworld-pocketbase/internal/models"
 )
 
 func main() {
