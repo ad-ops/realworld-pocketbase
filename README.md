@@ -19,7 +19,7 @@ The hope is to build a simple prototype that is self-contained, trivial to host 
 # Getting started
 ```sh
 go mod tidy
-go run main.go serve
+go run cmd/realworld-pocketbase/main.go serve
 ```
 
 ```sh
@@ -28,4 +28,4 @@ docker run --rm -it -p 8080:8080 realworld-pocketbase
 ```
 
 ## Login to PocketBase
-You can use user: `admin@realworld.com` and password: `adminadmin` in the provided db.
+You can use user: `admin@realworld.com` and password: `adminadmin` in the provided db or delete `/pb_data` to create your own.
